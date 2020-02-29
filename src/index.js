@@ -5,12 +5,14 @@ import App from './App';
 import 'bulma/css/bulma.css';
 import './styles.scss';
 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { rootReducer } from './reducers';
 
 const store = createStore(
     rootReducer,
+    applyMiddleware(thunk)
 )
 
 ReactDOM.render(
